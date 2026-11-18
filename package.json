@@ -1,0 +1,40 @@
+{
+    "name": "bun-react-template",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "bun --hot src/index.ts",
+        "build": "bun run panda:build && bun build ./src/index.ts --outdir=dist --target=bun --production --sourcemap",
+        "start": "NODE_ENV=production bun --cwd dist index.js",
+        "typecheck": "bunx --bun tsc6 --noEmit",
+        "test": "bun test",
+        "format": "bunx --bun prettier --write .",
+        "format:check": "bunx --bun prettier --check .",
+        "panda:build": "bunx --bun panda",
+        "panda:watch": "bunx --bun panda --watch",
+        "panda:check": "bunx --bun panda check",
+        "lint": "bunx --bun eslint .",
+        "lint:fix": "bunx --bun eslint . --fix"
+    },
+    "dependencies": {
+        "elysia": "^1.4.32",
+        "react": "^19",
+        "react-dom": "^19"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@pandacss/dev": "^2.5.0",
+        "@pandacss/preset-base": "2.5.0",
+        "@pandacss/preset-panda": "2.5.0",
+        "@types/bun": "latest",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^10.15.0",
+        "eslint-config-prettier": "^10.1.8",
+        "globals": "^17.14.0",
+        "prettier": "3.9.6",
+        "typescript": "npm:@typescript/typescript6@^6.0.2",
+        "typescript-eslint": "^8.73.0"
+    }
+}

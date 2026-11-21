@@ -16,7 +16,10 @@
         "panda:watch": "bunx --bun panda --watch",
         "panda:check": "bunx --bun panda check",
         "lint": "bunx --bun eslint .",
-        "lint:fix": "bunx --bun eslint . --fix"
+        "lint:fix": "bunx --bun eslint . --fix",
+        "db:up": "docker compose up --detach --wait",
+        "db:down": "docker compose down",
+        "db:logs": "docker compose logs --follow db"
     },
     "dependencies": {
         "elysia": "^1.4.32",

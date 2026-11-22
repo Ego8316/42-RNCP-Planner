@@ -10,6 +10,7 @@
         "start": "NODE_ENV=production bun --cwd dist index.js",
         "typecheck": "bunx --bun tsc6 --noEmit",
         "test": "bun test",
+        "test:integration": "bun test ./src/server/users/user.repository.integration.ts",
         "format": "bunx --bun prettier --write .",
         "format:check": "bunx --bun prettier --check .",
         "panda:build": "bunx --bun panda",
@@ -24,7 +25,10 @@
         "db:new": "dbmate new",
         "db:migrate": "dbmate up",
         "db:rollback": "dbmate down",
-        "db:status": "dbmate status"
+        "db:status": "dbmate status",
+        "db:test:up": "docker compose --profile test up --detach --wait db-test",
+        "db:test:migrate": "bunx --bun dbmate --env TEST_DATABASE_URL --no-dump-schema up",
+        "db:test:down": "docker compose --profile test rm --stop --force db-test"
     },
     "dependencies": {
         "elysia": "^1.4.32",

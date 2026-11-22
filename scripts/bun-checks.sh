@@ -5,4 +5,5 @@ bun run format
 bun run lint
 bun run typecheck
 bun run test
+bun run test:integration
 bun run build

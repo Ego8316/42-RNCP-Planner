@@ -1,11 +1,14 @@
 import { Elysia, t } from "elysia";
+import { createAuthRoutes, type AuthRouteDependencies } from "./auth/auth.routes";
 
 export type ApiDependencies = {
     pingDatabase: () => Promise<void>;
+    authRouteDependencies: AuthRouteDependencies;
 };
 
 export function createApi(dependencies: ApiDependencies) {
     return new Elysia({ prefix: "/api" })
+        .use(createAuthRoutes(dependencies.authRouteDependencies))
         .get(
             "/hello/:name",
             ({ params }) => {
